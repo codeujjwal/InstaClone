@@ -1,3 +1,32 @@
 a {
   color: black !important;
 }
+
+.brand-logo {
+  font-family: "Grand Hotel", cursive;
+  padding-left: 20px !important;
+}
+
+.login-card {
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+  height: 350px;
+}
+.signup-card {
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+}
+
+.main_container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.btn {
+  margin-top: 30px !important;
+}
