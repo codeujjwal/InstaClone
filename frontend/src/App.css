@@ -17,7 +17,7 @@ a {
   padding: 20px;
   text-align: center;
   width: 400px;
-  height: 400px;
+  height: 450px;
 }
 
 .main_container {
@@ -27,6 +27,30 @@ a {
   align-items: center;
   flex-direction: column;
 }
-.btn {
+.btn-s {
   margin-top: 30px !important;
+}
+
+.home-card {
+  max-width: 500px;
+  height: max-content;
+  margin: 26px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.home {
+  padding: 0px 20px 0px 20px;
+}
+h5 {
+  margin-left: 20px;
+}
+.post-card {
+  padding: 20px;
+  width: 400px;
+  height: 420px;
+  text-align: center;
+}
+#toast-container {
+  top: 0 !important;
 }

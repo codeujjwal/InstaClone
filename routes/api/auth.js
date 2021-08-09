@@ -72,7 +72,7 @@ router.post(
           .json({ errors: [{ msg: "Incorrect password" }] });
       }
       const token = jwt.sign({ _id: user._id }, JWT_SECRET);
-      res.json({ token });
+      res.json({ token, user });
     } catch (error) {
       console.error(error);
       res.status(400).send(error.message);
