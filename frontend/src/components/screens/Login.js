@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import M from "materialize-css";
 
-const Login = () => {
+const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const submit = async () => {
@@ -13,11 +13,13 @@ const Login = () => {
       };
       const formData = JSON.stringify({ email, password });
       const res = await axios.post("/api/auth/signin", formData, config);
+      localStorage.setItem("jwt", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       M.toast({
         html: "Signed In successfully",
         classes: "#2e7d32 green darken-3",
       });
-      console.log(res.data);
+      history.push("/");
     } catch (error) {
       console.log(error.response.data);
       if (error.response.data.msg) {

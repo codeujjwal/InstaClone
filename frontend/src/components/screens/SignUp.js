@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import M from "materialize-css";
 
-const SignUp = () => {
+const SignUp = ({ history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +32,7 @@ const SignUp = () => {
           html: "Signed Up successfully",
           classes: "#2e7d32 green darken-3",
         });
+        history.push("/signin");
       } catch (error) {
         console.log(error);
         if (error.response) {

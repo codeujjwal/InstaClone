@@ -13,15 +13,16 @@ router.post(
     auth,
     check("title", "Title is required").not().isEmpty(),
     check("body", "Body is required").not().isEmpty(),
+    check("image", "Add Image").not().isEmpty(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { title, body } = req.body;
+    const { title, body, image } = req.body;
     try {
-      const post = new Post({ title, body, postedBy: req.user });
+      const post = new Post({ title, body, image, postedBy: req.user });
       await post.save();
       res.json(post);
     } catch (error) {
