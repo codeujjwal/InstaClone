@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
 import axios from "axios";
 import M from "materialize-css";
 
 const Login = ({ history }) => {
+  const { dispatch } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const submit = async () => {
@@ -15,6 +17,7 @@ const Login = ({ history }) => {
       const res = await axios.post("/api/auth/signin", formData, config);
       localStorage.setItem("jwt", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
+      dispatch({ type: "USER", payload: res.data.user });
       M.toast({
         html: "Signed In successfully",
         classes: "#2e7d32 green darken-3",
