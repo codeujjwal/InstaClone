@@ -52,13 +52,13 @@ const Login = ({ history }) => {
         />
         <input
           className="Input"
-          type="text"
+          type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button
-          className="btn btn-s waves-effect waves-light #64b5f6 blue darken-1"
+          className="btn btn-s btn-m waves-effect waves-light #64b5f6 blue darken-1"
           onClick={() => submit()}
         >
           Login

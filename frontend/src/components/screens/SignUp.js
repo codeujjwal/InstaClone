@@ -73,7 +73,7 @@ const SignUp = ({ history }) => {
           onChange={(e) => setPassword1(e.target.value)}
         />
         <button
-          className="btn btn-s waves-effect waves-light #64b5f6 blue darken-1"
+          className="btn btn-s btn-m waves-effect waves-light #64b5f6 blue darken-1"
           onClick={() => submit()}
         >
           Signup

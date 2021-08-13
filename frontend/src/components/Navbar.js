@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../App";
+import M from "materialize-css";
+import history from "history/browser";
 
 const Navbar = () => {
-  const { state } = useContext(UserContext);
+  const { state, dispatch } = useContext(UserContext);
   return (
     <div>
       <nav>
@@ -18,6 +20,22 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/addpost">Add Post</Link>
+              </li>
+              <li>
+                <button
+                  className="btn btn-s waves-effect waves-light #c62828 red darken-3"
+                  onClick={() => {
+                    history.push("/signin");
+                    localStorage.clear();
+                    dispatch({ type: "CLEAR" });
+                    M.toast({
+                      html: "Logged out successfully",
+                      classes: "#2e7d32 green darken-3",
+                    });
+                  }}
+                >
+                  Log out
+                </button>
               </li>
             </ul>
           ) : (

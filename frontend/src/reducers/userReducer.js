@@ -6,5 +6,8 @@ export const reducer = (state, actions) => {
   if (type === "USER") {
     return payload;
   }
+  if (type === "CLEAR") {
+    return null;
+  }
   return state;
 };
